@@ -1,5 +1,5 @@
 # Model Display Overrides
-Client side model display overrides for [Fabric](https://github.com/FabricMC/fabric)
+Client side model display overrides for [fabric](https://github.com/FabricMC/fabric)
 
 ![Display Overrides Demo](https://github.com/CPieter/ModelDisplayOverrides/assets/56731651/a3cedaa6-9249-48a9-b33d-128f2c5d2fcb)
 
