@@ -1,0 +1,16 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "minecraft:item/diamond"
+  },
+  "display_overrides": [
+    {
+      "display": "firstperson_lefthand",
+      "model": "minecraft:item/gold_ingot"
+    },
+    {
+      "display": "ground",
+      "model": "minecraft:block/dirt"
+    }
+  ]
+}
