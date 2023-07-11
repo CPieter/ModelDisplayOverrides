@@ -10,16 +10,10 @@ Example model json
   "textures": {
     "layer0": "minecraft:item/diamond"
   },
-  "display_overrides": [
-    {
-      "display": "firstperson_lefthand",
-      "model": "minecraft:item/gold_ingot"
-    },
-    {
-      "display": "ground",
-      "model": "minecraft:block/dirt"
-    }
-  ]
+  "display_overrides": {
+    "firstperson_lefthand": "minecraft:item/gold_ingot",
+    "ground": "minecraft:block/dirt"
+  }
 }
 ```
 Valid display modes:
