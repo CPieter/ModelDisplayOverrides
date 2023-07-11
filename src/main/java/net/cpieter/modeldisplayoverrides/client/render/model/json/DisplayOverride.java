@@ -64,7 +64,9 @@ public class DisplayOverride {
         static {
             transformationModeDeserializer = new Hashtable<>();
             for (var mode : ModelTransformationMode.values()) {
-                transformationModeDeserializer.put(mode.asString(), mode);
+                if (mode != ModelTransformationMode.NONE) {
+                    transformationModeDeserializer.put(mode.asString(), mode);
+                }
             }
         }
     }
