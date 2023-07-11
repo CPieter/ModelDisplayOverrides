@@ -1,6 +1,6 @@
 package net.cpieter.modeldisplayoverrides.mixin;
 
-import net.cpieter.modeldisplayoverrides.client.render.model.json.ModelDisplayOverride;
+import net.cpieter.modeldisplayoverrides.client.render.model.json.DisplayOverride;
 import net.cpieter.modeldisplayoverrides.util.JsonUnbakedModelAccess;
 import net.minecraft.client.render.model.json.ItemModelGenerator;
 import net.minecraft.client.render.model.json.JsonUnbakedModel;
@@ -19,7 +19,7 @@ public abstract class ItemModelGeneratorMixin {
     @Inject(method = "create", at = @At(value = "RETURN"), cancellable = true)
     private void injectCreate(Function<SpriteIdentifier, Sprite> textureGetter, JsonUnbakedModel blockModel, CallbackInfoReturnable<JsonUnbakedModel> cir) {
         JsonUnbakedModel jsonUnbakedModel = cir.getReturnValue();
-        List<ModelDisplayOverride> displayOverrides = ((JsonUnbakedModelAccess)blockModel).getDisplayOverrides();
+        List<DisplayOverride> displayOverrides = ((JsonUnbakedModelAccess)blockModel).getDisplayOverrides();
         ((JsonUnbakedModelAccess)jsonUnbakedModel).setDisplayOverrides(displayOverrides);
         cir.setReturnValue(jsonUnbakedModel);
     }

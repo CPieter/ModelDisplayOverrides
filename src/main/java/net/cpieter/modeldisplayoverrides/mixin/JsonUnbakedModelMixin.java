@@ -1,7 +1,7 @@
 package net.cpieter.modeldisplayoverrides.mixin;
 
-import net.cpieter.modeldisplayoverrides.client.render.model.json.ModelDisplayOverride;
-import net.cpieter.modeldisplayoverrides.client.render.model.json.ModelDisplayOverrideList;
+import net.cpieter.modeldisplayoverrides.client.render.model.json.DisplayOverride;
+import net.cpieter.modeldisplayoverrides.client.render.model.json.BakedDisplayOverrideList;
 import net.cpieter.modeldisplayoverrides.util.DisplayOverridesAccess;
 import net.cpieter.modeldisplayoverrides.util.JsonUnbakedModelAccess;
 import net.minecraft.client.render.model.BakedModel;
@@ -29,7 +29,7 @@ import java.util.function.Function;
 @Mixin(JsonUnbakedModel.class)
 public abstract class JsonUnbakedModelMixin implements UnbakedModel, JsonUnbakedModelAccess {
     @Unique
-    private List<ModelDisplayOverride> displayOverrides = new ArrayList<>();
+    private List<DisplayOverride> displayOverrides = new ArrayList<>();
 
     @Inject(method = "getModelDependencies", at = @At("RETURN"), cancellable = true)
     private void injectGetModelDependencies(CallbackInfoReturnable<Set<Identifier>> cir) {
@@ -64,17 +64,17 @@ public abstract class JsonUnbakedModelMixin implements UnbakedModel, JsonUnbaked
     }
 
     @Override
-    public List<ModelDisplayOverride> getDisplayOverrides() {
+    public List<DisplayOverride> getDisplayOverrides() {
         return displayOverrides;
     }
 
     @Override
-    public void setDisplayOverrides(List<ModelDisplayOverride> displayOverrides) {
+    public void setDisplayOverrides(List<DisplayOverride> displayOverrides) {
         this.displayOverrides = displayOverrides;
     }
 
     @Override
-    public ModelDisplayOverrideList compileDisplayOverrides(Baker baker, JsonUnbakedModel parent) {
-        return this.displayOverrides.isEmpty() ? ModelDisplayOverrideList.EMPTY : new ModelDisplayOverrideList(baker, parent, this.displayOverrides);
+    public BakedDisplayOverrideList compileDisplayOverrides(Baker baker, JsonUnbakedModel parent) {
+        return this.displayOverrides.isEmpty() ? BakedDisplayOverrideList.EMPTY : new BakedDisplayOverrideList(baker, parent, this.displayOverrides);
     }
 }

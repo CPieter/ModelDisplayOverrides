@@ -15,15 +15,15 @@ import java.util.List;
 import java.util.Objects;
 
 @Environment(EnvType.CLIENT)
-public class ModelDisplayOverrideList {
-    public static final ModelDisplayOverrideList EMPTY = new ModelDisplayOverrideList();
+public class BakedDisplayOverrideList {
+    public static final BakedDisplayOverrideList EMPTY = new BakedDisplayOverrideList();
     private final BakedDisplayOverride[] overrides;
 
-    private ModelDisplayOverrideList() {
+    private BakedDisplayOverrideList() {
         this.overrides = new BakedDisplayOverride[0];
     }
 
-    public ModelDisplayOverrideList(Baker baker, JsonUnbakedModel parent, List<ModelDisplayOverride> overrides) {
+    public BakedDisplayOverrideList(Baker baker, JsonUnbakedModel parent, List<DisplayOverride> overrides) {
         List<BakedDisplayOverride> list = Lists.newArrayList();
         for (var override : overrides) {
             BakedModel bakedModel = this.bakeOverridingModel(baker, parent, override);
@@ -33,7 +33,7 @@ public class ModelDisplayOverrideList {
     }
 
     @Nullable
-    private BakedModel bakeOverridingModel(Baker baker, JsonUnbakedModel parent, ModelDisplayOverride override) {
+    private BakedModel bakeOverridingModel(Baker baker, JsonUnbakedModel parent, DisplayOverride override) {
         UnbakedModel unbakedModel = baker.getOrLoadModel(override.getModelId());
         return Objects.equals(unbakedModel, parent) ? null : baker.bake(override.getModelId(), ModelRotation.X0_Y0);
     }

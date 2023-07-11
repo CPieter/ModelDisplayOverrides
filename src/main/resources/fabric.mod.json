@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "modeldisplayoverrides",
+  "version": "${version}",
+  "name": "ModelDisplayOverrides",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/piete/ModelDisplayOverrides"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/ModelDisplayOverrides/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "net.cpieter.modeldisplayoverrides.client.ModelDisplayOverridesClient"
+    ],
+    "main": [
+      "net.cpieter.modeldisplayoverrides.ModelDisplayOverrides"
+    ]
+  },
+  "mixins": [
+    "ModelDisplayOverrides.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

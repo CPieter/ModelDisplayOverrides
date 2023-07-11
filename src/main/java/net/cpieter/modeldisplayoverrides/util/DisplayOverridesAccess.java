@@ -1,8 +1,8 @@
 package net.cpieter.modeldisplayoverrides.util;
 
-import net.cpieter.modeldisplayoverrides.client.render.model.json.ModelDisplayOverrideList;
+import net.cpieter.modeldisplayoverrides.client.render.model.json.BakedDisplayOverrideList;
 
 public interface DisplayOverridesAccess {
-    void setDisplayOverrides(ModelDisplayOverrideList displayOverrides);
-    ModelDisplayOverrideList getDisplayOverrides();
+    void setDisplayOverrides(BakedDisplayOverrideList displayOverrides);
+    BakedDisplayOverrideList getDisplayOverrides();
 }
