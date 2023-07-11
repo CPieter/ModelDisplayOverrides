@@ -16,8 +16,7 @@ Example model json
   }
 }
 ```
-Valid display modes:
-- "none"
+Valid display positions:
 - "thirdperson_lefthand"
 - "thirdperson_righthand"
 - "firstperson_lefthand"
